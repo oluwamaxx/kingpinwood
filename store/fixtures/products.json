@@ -1,0 +1,77 @@
+[
+  {
+    "model": "store.product",
+    "pk": 1,
+    "fields": {
+      "slug": "fluted-panel",
+      "name": "Fluted Panel",
+      "category": "panels",
+      "unit": "per panel",
+      "price": "15500.00",
+      "description": "Grooved wall panel with a stone-grain finish, for feature walls and partitions.",
+      "image": "products/fluted-panel.jpg",
+      "is_active": true,
+      "display_order": 1
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 2,
+    "fields": {
+      "slug": "marble-gold",
+      "name": "Marble Sheet — Calacatta Gold",
+      "category": "panels",
+      "unit": "per sheet",
+      "price": "42000.00",
+      "description": "White marble-effect sheet with gold veining, for wall cladding and feature panels.",
+      "image": "products/marble-gold.jpg",
+      "is_active": true,
+      "display_order": 2
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 3,
+    "fields": {
+      "slug": "marble-black",
+      "name": "Marble Sheet — Nero Gold",
+      "category": "panels",
+      "unit": "per sheet",
+      "price": "44000.00",
+      "description": "Charcoal marble-effect sheet with gold fault lines, for a bold interior feature.",
+      "image": "products/marble-black.jpg",
+      "is_active": true,
+      "display_order": 3
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 4,
+    "fields": {
+      "slug": "wooden-door",
+      "name": "Wooden Door — Classic Walnut",
+      "category": "doors",
+      "unit": "per door",
+      "price": "68000.00",
+      "description": "Walnut-finish door with brass inlay strips and matching handle set.",
+      "image": "products/wooden-door.jpg",
+      "is_active": true,
+      "display_order": 4
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 5,
+    "fields": {
+      "slug": "edge-banding",
+      "name": "Edge Banding Tape",
+      "category": "finishing",
+      "unit": "per roll",
+      "price": "4500.00",
+      "description": "PVC edge banding in matching wood-grain, solid and marble finishes.",
+      "image": "products/edge-banding.jpg",
+      "is_active": true,
+      "display_order": 5
+    }
+  }
+]
