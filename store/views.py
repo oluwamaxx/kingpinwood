@@ -1,6 +1,8 @@
 import json
 from decimal import Decimal, InvalidOperation
 
+from django.conf import settings
+from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie
@@ -67,5 +69,28 @@ def create_order(request):
             unit_price=Decimal(str(item.get("unit_price", "0"))),
             qty=int(item.get("qty", 1)),
         )
+
+    try:
+        item_lines = "\n".join(
+            f"- {item.get('qty')} x {item.get('name')} @ N{item.get('unit_price')}"
+            for item in items
+        )
+        send_mail(
+            subject=f"New order {order.reference} - Kingpin Wood",
+            message=(
+                f"New order received.\n\n"
+                f"Reference: {order.reference}\n"
+                f"Customer: {order.customer_name}\n"
+                f"Phone: {order.customer_phone}\n"
+                f"Address: {order.customer_address}\n\n"
+                f"Items:\n{item_lines}\n\n"
+                f"Total: N{order.total}"
+            ),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.ORDER_NOTIFY_EMAIL],
+            fail_silently=False,
+        )
+    except Exception as e:
+        print(f"EMAIL SEND FAILED: {e}")
 
     return JsonResponse({"reference": order.reference}, status=201)
